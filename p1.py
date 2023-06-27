@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv(
-    'C:\\Users\\sunet\\OneDrive\\Desktop\\ASSIGNMENT\\python project\\placement prediction\\Placement_Data_Full_Class.csv')
+    'C:\\Users\\sunet\\OneDrive\\Desktop\\ASSIGNMENT\\python project\\PLACEMENT_ACCURACY_ML\\Placement_Data_Full_Class.csv')
 df['salary'].fillna(0, inplace=True)
 
 gender = {'M': 0, 'F': 1}
@@ -37,29 +37,29 @@ df1 = pd.DataFrame({'ACTUAL': y_test.values.flatten(),
 # print(df1.head())
 
 accuracy = accuracy_score(y_test, prediction)
-# print("Accuracy:", accuracy)
+print("Accuracy:", accuracy)
 
 
-gender_input = int(
-    input("Enter gender (for male enter 0 for female enter 1): "))
-ssc_input = float(input("Enter SSC percentage: "))
-hsc_input = float(input("Enter HSC percentage: "))
-degree_input = float(input("Enter degree percentage: "))
-mba_input = float(input("Enter MBA percentage: "))
-etest_input = float(input("Enter employment test percentage: "))
+# gender_input = int(
+#     input("Enter gender (for male enter 0 for female enter 1): "))
+# ssc_input = float(input("Enter SSC percentage: "))
+# hsc_input = float(input("Enter HSC percentage: "))
+# degree_input = float(input("Enter degree percentage: "))
+# mba_input = float(input("Enter MBA percentage: "))
+# etest_input = float(input("Enter employment test percentage: "))
 
-# Create a new data point using the user input
-new_data = pd.DataFrame({'gender': [gender_input],
-                         'ssc_p': [ssc_input],
-                         'hsc_p': [hsc_input],
-                         'degree_p': [degree_input],
-                         'mba_p': [mba_input],
-                         'etest_p': [etest_input]})
+# # Create a new data point using the user input
+# new_data = pd.DataFrame({'gender': [gender_input],
+#                          'ssc_p': [ssc_input],
+#                          'hsc_p': [hsc_input],
+#                          'degree_p': [degree_input],
+#                          'mba_p': [mba_input],
+#                          'etest_p': [etest_input]})
 
 
-new_prediction = logistic.predict(new_data)
+# new_prediction = logistic.predict(new_data)
 
-print("Prediction for the new data point:", new_prediction)
+# print("Prediction for the new data point:", new_prediction)
 
 with open('placement_prediction.pkl', 'wb') as file:
     pickle.dump(logistic, file)
